@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #fff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Scroll Container sets the scrollable height */
+.scroll-container {
+    height: 500vh; /* 5 viewports tall for scroll animation */
+    position: relative;
+}
+
+/* Sticky Hero Section */
+.hero-section {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.animation-container {
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Outro Section */
+.outro-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0; /* Placed at the very end of the scroll container */
+}
+
+.outro-text {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.outro-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Beacon Animation */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        opacity: 0.2;
+    }
+}
+
+#beacon {
+    animation: flicker 4s infinite alternate;
+}
